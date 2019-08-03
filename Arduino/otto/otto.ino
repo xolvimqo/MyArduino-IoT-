@@ -73,18 +73,19 @@ void setup(){
 //  pinMode(ECHOPIN, INPUT);
 //  pinMode(TRIGPIN, OUTPUT);
 
-  // Set ESP8266 as client and connect to Wi-Fi
-//  cmdExecute("AT+RST\r\n", 2000, DEBUG); // Reset ESP8266
-//  cmdExecute("AT+CWMODE=1\r\n", 2000, DEBUG); // configure as sta
+//  // Set ESP8266 as client and connect to Wi-Fi
+//  cmdExecute("AT+RST\r\n", 1000, DEBUG); // Reset ESP8266
+//  cmdExecute("AT+CWMODE=1\r\n", 1000, DEBUG); // configure as sta
 //  cmdExecute("AT+CWJAP=\"Georgian\",\"\"\r\n", 10000, DEBUG);
-//  cmdExecute("AT+CIFSR\r\n", 2000, DEBUG); // get ip address // 192.168.4.1
-//  cmdExecute("AT+CIPMUX=1\r\n", 2000, DEBUG); // set the multiple mode, it needs to be set before next line
-//  cmdExecute("AT+CIPSERVER=1,80\r\n", 2000, DEBUG); // turn on server on port 80
+//  cmdExecute("AT+CIFSR\r\n", 5000, DEBUG); // get ip address // 192.168.4.1
+//  cmdExecute("AT+CIPMUX=1\r\n", 1000, DEBUG); // set the multiple mode, it needs to be set before next line
+//  cmdExecute("AT+CIPSERVER=1,80\r\n", 1000, DEBUG); // turn on server on port 80
 
   // Set ESP8266 as AP
   cmdExecute("AT+RST\r\n", 2000, DEBUG); // Reset ESP8266
-  cmdExecute("AT+CWMODE=2\r\n", 2000, DEBUG); // configure as access point
-  cmdExecute("AT+CWSAP=\"OttoWiFi\",\"otto\",1,4", 5000, DEBUG);
+  cmdExecute("AT+CWMODE=3\r\n", 2000, DEBUG); // configure as access point
+  cmdExecute("AT+CWJAP=\"Georgian\",\"\"\r\n", 10000, DEBUG);
+  cmdExecute("AT+CWSAP=\"OttoWi-Fi\",\"Ej3Cj06Ru8\",4,0", 5000, DEBUG);
   cmdExecute("AT+CIFSR\r\n", 2000, DEBUG); // get ip address // 192.168.4.1
   cmdExecute("AT+CIPMUX=1\r\n", 2000, DEBUG); // set the multiple mode, it needs to be set before next line
   cmdExecute("AT+CIPSERVER=1,80\r\n", 2000, DEBUG); // turn on server on port 80
@@ -130,7 +131,7 @@ void loop() {
       Otto.turn(4,1000,-1);
       break;
       case 11:
-      Otto.walk(1,1300,-1);
+      Otto.moonwalker(3, 1000, 25, 1);
       break;
      }
 
